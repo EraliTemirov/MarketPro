@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react';
 
 const More = () => {
    const { productId } = useParams();
-   const [product, setProduct] = useState([]);
+   const [product, setProduct] = useState(null);
 
    useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${productId}`)
     .then((res) => res.json())
     .then((json) => setProduct(json));
-   }, []);
+   }, [productId]);
 
    console.log(product);
 
